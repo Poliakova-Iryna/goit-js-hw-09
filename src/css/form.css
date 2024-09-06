@@ -1,0 +1,37 @@
+.feedback-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 24px;
+    width: 408px;
+    height: 296px;
+}
+
+.form-label {
+    margin-bottom: 8px;
+}
+
+.form-input {
+    border: 1px solid #808080;
+    border-radius: 4px;
+    width: 360px;
+    height: 40px;
+}
+.form-textarea {
+    border: 1px solid #808080;
+    border-radius: 4px;
+    width: 360px;
+    height: 80px;
+    margin-bottom: 16px;
+}
+
+.form-btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 95px;
+    height: 40px;
+    background: #4e75ff;
+    color: #ffffff;
+    border: none;
+}
