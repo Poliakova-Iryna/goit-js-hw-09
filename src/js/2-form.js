@@ -2,15 +2,15 @@
 const formData = {
     email: "",
     message: ""
-  };
+};
   
  
-  const saveToLocalStorage = () => {
+const saveToLocalStorage = () => {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
-  };
+};
   
   
-  const populateFormFromLocalStorage = () => {
+const populateFormFromLocalStorage = () => {
     const savedData = localStorage.getItem('feedback-form-state');
     if (savedData) {
       const { email, message } = JSON.parse(savedData);
@@ -20,18 +20,21 @@ const formData = {
       document.querySelector('input[name="email"]').value = email;
       document.querySelector('textarea[name="message"]').value = message;
     }
-  };
+};
   
   
-  const handleInput = (event) => {
+const handleInput = (event) => {
     const { name, value } = event.target;
     formData[name] = value;
     saveToLocalStorage();
-  };
+};
   
   
-  const handleSubmit = (event) => {
+const handleSubmit = (event) => {
     event.preventDefault();
+
+    formData.email = formData.email.trim();
+    formData.message = formData.message.trim();
     
     if (formData.email === "" || formData.message === "") {
       alert('Fill please all fields');
@@ -50,10 +53,10 @@ const formData = {
     
     document.querySelector('input[name="email"]').value = "";
     document.querySelector('textarea[name="message"]').value = "";
-  };
+};
   
   
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     populateFormFromLocalStorage();
     document.querySelector('.feedback-form').addEventListener('input', handleInput);
     document.querySelector('.feedback-form').addEventListener('submit', handleSubmit);
